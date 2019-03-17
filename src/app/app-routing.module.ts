@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {PwWidgetComponent} from './widget/pw-widget/pw-widget.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', redirectTo: '/widget', pathMatch: 'full'},
+  {path: 'widget', component: PwWidgetComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

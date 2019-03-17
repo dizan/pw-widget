@@ -1,0 +1,214 @@
+
+<div class="container">
+
+  <form>
+
+  <div class="row">
+    <div class="col s12">
+      <div class="logo center-align">
+        <img src="https://www.paymentwall.com/uploaded/files/paymentwall-logo.svg" class="pw-logo">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s10 offset-s1 xl6 offset-xl3">
+      <div class="row">
+        <div class="col s6">
+          <mz-input-container>
+            <input mz-input
+                   [validate]="true"
+                   [length] = "false"
+                   [autocomplete]="countries"
+                   [dataError]="'Country is invalid'"
+                   [dataSuccess]="'Country is valid'"
+                   placeholder="Type country..."
+                   id="country-input"
+                   length="150"
+                   autocomplete="off"
+                   name="ads"
+                   (change)="setSelectedCountry($event)"
+                   [value]="selectedCountry.name"
+                   type="text">
+          </mz-input-container>
+        </div>
+        <div class="col s6" *ngIf="selectedCountry.name">
+          <mz-input-container >
+            <input mz-input
+                   [validate]="true"
+                   [length] = "false"
+                   [dataError]="'Amount is invalid'"
+                   [(ngModel)]="amount"
+                   required
+                   name="4353s"
+                   autocomplete="off"
+                   id="amount-input"
+                   placeholder="Enter your amount"
+                   length="150"
+                   type="number"
+                   >
+          </mz-input-container>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s10 offset-s1 xl6 offset-xl3">
+      <!--<mz-input-container>-->
+        <!--<input mz-input-->
+               <!--[validate]="true"-->
+               <!--[length] = "false"-->
+               <!--[dataError]="'Amount is invalid'"-->
+               <!--[dataSuccess]="'Amount is valid'"-->
+               <!--id="amount-input"-->
+               <!--placeholder="Enter your amount"-->
+               <!--length="150"-->
+               <!--type="text">-->
+      <!--</mz-input-container>-->
+    </div>
+  </div>
+
+
+  <div class="row" *ngIf="selectedCountry.name">
+    <div class="col s10 offset-s1 xl6 offset-xl3">
+        <mz-select-container>
+          <select mz-select
+                  id="options-select"
+                  [(ngModel)]="paymentMethod"
+                  name="213"
+                  (change)="log()"
+                  [placeholder]="'Select payment method'">
+            <option *ngFor="let method of paymentMethods" [attr.data-icon]="method.img_url" class="left " [ngValue]="method">{{ method.name }}</option>
+          </select>
+        </mz-select-container>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="paymentMethod && selectedCountry.name">
+    <div class="col s10 offset-s1 xl6 offset-xl3">
+      <div class="payment-card card-front">
+        <div class="row">
+          <div class="col s8"></div>
+
+          <div class="col s4"> <img [src]="paymentMethod.img_url" alt="" class="payment-method-logo"></div>
+        </div>
+
+        <div class="row">
+          <div class="col s10">
+            <mz-input-container>
+              <input mz-input
+                     [validate]="true"
+                     [length] = "false"
+                     [dataError]="'Number is invalid'"
+                     [dataSuccess]="'Number is valid'"
+                     [textMask]="{mask: cardMask}"
+                     [(ngModel)]="cardNumber"
+                     id="card-number-input"
+                     name="safagdsd"
+                     placeholder="card number"
+                     length="10"
+                     type="text">
+            </mz-input-container>
+          </div>
+          <div class="col s2"></div>
+        </div>
+
+        <div class="row">
+          <div class="col s7">
+            <mz-input-container>
+              <input mz-input
+                     [validate]="true"
+                     [length] = "false"
+                     [dataError]="'Name is invalid'"
+                     [dataSuccess]="'Name is valid'"
+                     id="name-input"
+                     placeholder="Name Surname"
+                     length="150"
+                     type="text">
+            </mz-input-container>
+          </div>
+
+          <div class="col s5">
+            <!--<mz-datepicker-container class="col s12">-->
+              <!--<input mz-datepicker-->
+                     <!--[options]="options"-->
+                     <!--[(ngModel)]="dateOfBirth"-->
+                     <!--name="klklk"-->
+                     <!--id="datepicker"-->
+                     <!--placeholder="DD/YY"-->
+                     <!--type="text">-->
+            <!--</mz-datepicker-container>-->
+            <div class="col s5">
+              <mz-input-container>
+                <input mz-input
+                       [validate]="true"
+                       [length] = "false"
+                       [dataError]="'Name is invalid'"
+                       [dataSuccess]="'Name is valid'"
+                       id="name1-input"
+                       placeholder="MM"
+                       length="150"
+                       type="text">
+              </mz-input-container>
+            </div>
+            <div class="col s2">
+              <div class="date-divider">/</div>
+            </div>
+            <div class="col s5">
+              <mz-input-container>
+                <input mz-input
+                       [validate]="true"
+                       [length] = "false"
+                       [dataError]="'Name is invalid'"
+                       [dataSuccess]="'Name is valid'"
+                       id="name2-input"
+                       placeholder="YY"
+                       length="150"
+                       type="text">
+              </mz-input-container>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class=" payment-card card-back">
+        <div class="stripe">
+
+        </div>
+
+        <div class="cvv-block">
+          <div class="row">
+            <div class="col s10"> </div>
+            <div class="col s2">
+              <mz-input-container>
+                <input mz-input
+                       [validate]="true"
+                       [length] = "false"
+                       [dataError]="'Cvv is invalid'"
+                       [dataSuccess]="'Cvv is valid'"
+                       id="cvv-input"
+                       placeholder="CVV"
+                       maxlength="3"
+                       type="text">
+              </mz-input-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row button-block" *ngIf="paymentMethod && selectedCountry.name">
+    <div class="col s10 offset-s1 xl6 offset-xl3">
+      <button class="pay-button" mz-button>
+        Pay {{amount}} {{selectedCountry.currencies[0].symbol}}
+      </button>
+    </div>
+  </div>
+  </form>
+</div>
+

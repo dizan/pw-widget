@@ -1,0 +1,76 @@
+
+
+.container{
+  padding: 10px 0;
+  border-radius: 10px 10px;
+  margin: 0 auto;
+  transition: all 0.2s 0s ease-in-out;
+
+  .row{
+    margin-bottom: 5px;
+  }
+
+  .payment-card {
+    width: 90%;
+    min-width:320px;
+    height: 250px;
+    background-color: #fff;
+    box-shadow: 10px 10px 10px -5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    position: relative;
+    color: black;
+
+  }
+
+  .card-front {
+    padding: 10px 20px;
+    z-index: 2;
+
+    .date-divider{
+      margin-top: 25px;
+      font-size: 20px;
+    }
+  }
+
+  .card-back {
+    margin-top: -172px;
+    margin-left: 25px;
+    z-index: 1;
+    padding: 10% 0 10%;
+
+
+    .stripe{
+      height: 36px;
+      border-bottom: 54px solid #b2b2b2;
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    .cvv-block{
+      margin: 0 24px 50px;
+    }
+  }
+
+  .pay-button {
+    width: 100%;
+  }
+
+  .payment-method-logo {
+    width:100%;
+  }
+
+  .payment-logo-container{
+    background: #FBBF15;
+    border-radius: 50%;
+  }
+
+  .button-block{
+    margin-top: 20px;
+  }
+
+
+}
+
+
+
+
