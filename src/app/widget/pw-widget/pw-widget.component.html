@@ -62,14 +62,14 @@
         </mz-select-container>
     </div>
   </div>
-    <!--*ngIf="paymentMethod && selectedCountry.name"-->
-  <div class="row" >
+
+  <div class="row" *ngIf="paymentMethod && selectedCountry.name">
     <div class="col s10 offset-s1 xl6 offset-xl3">
       <div class="payment-card card-front">
         <div class="row">
           <div class="col s8"></div>
 
-          <!--<div class="col s4"> <img [src]="paymentMethod.img_url" alt="" class="payment-method-logo"></div>-->
+          <div class="col s4"> <img [src]="paymentMethod.img_url" alt="" class="payment-method-logo"></div>
         </div>
 
         <div class="row">
