@@ -20,36 +20,44 @@
     position: relative;
     color: black;
 
-  }
-
-  .card-front {
-    padding: 10px 20px;
-    z-index: 2;
-
-    .date-divider{
-      margin-top: 25px;
-      font-size: 20px;
-    }
-  }
-
-  .card-back {
-    margin-top: -172px;
-    margin-left: 25px;
-    z-index: 1;
-    padding: 10% 0 10%;
+    /deep/ input.select-dropdown{
+      text-align: center !important;
 
 
-    .stripe{
-      height: 36px;
-      border-bottom: 54px solid #b2b2b2;
-      margin-bottom: 32px;
-      display: block;
     }
 
-    .cvv-block{
-      margin: 0 24px 50px;
+    &.card-front {
+      padding: 10px 20px;
+      z-index: 2;
+
+      .date-divider{
+        margin-top: 25px;
+        font-size: 20px;
+      }
     }
+
+    &.card-back {
+      margin-top: -172px;
+      margin-left: 25px;
+      z-index: 1;
+      padding: 10% 0 10%;
+
+
+      .stripe{
+        height: 36px;
+        border-bottom: 54px solid #b2b2b2;
+        margin-bottom: 32px;
+        display: block;
+      }
+
+      .cvv-block{
+        margin: 0 24px 50px;
+      }
+    }
+
   }
+
+
 
   .pay-button {
     width: 100%;
@@ -68,6 +76,10 @@
     margin-top: 20px;
   }
 
+
+  /deep/ span.caret{
+    display: none;
+  }
 
 }
 

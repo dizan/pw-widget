@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PwWidgetComponent } from './pw-widget/pw-widget.component';
-import {MzDatepickerModule, MzDropdownModule, MzInputModule} from 'ngx-materialize';
+import {MzDatepickerModule, MzDropdownModule, MzInputModule, MzModalModule, MzValidationModule} from 'ngx-materialize';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MzSelectModule } from 'ngx-materialize';
 import { MzButtonModule } from 'ngx-materialize'
@@ -11,9 +11,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete'
 import {MatButtonModule, MatDatepicker, MatFormFieldModule, MatInputModule} from '@angular/material';
 import {TextMaskModule} from 'angular2-text-mask';
+import { SuccessScreenComponent } from './success-screen/success-screen.component';
 
 @NgModule({
-  declarations: [PwWidgetComponent],
+  declarations: [PwWidgetComponent, SuccessScreenComponent],
   imports: [
     CommonModule,
     MzInputModule,
@@ -24,13 +25,12 @@ import {TextMaskModule} from 'angular2-text-mask';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    MatAutocompleteModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
     TextMaskModule,
-    MzDatepickerModule
-  ]
+    MzDatepickerModule,
+    MzValidationModule,
+    MzModalModule
+  ],
+  entryComponents: [SuccessScreenComponent]
 })
 export class WidgetModule { }
