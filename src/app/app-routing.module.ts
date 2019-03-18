@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {PwWidgetComponent} from './widget/pw-widget/pw-widget.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/widget', pathMatch: 'full'},
+  {path: '', component: PwWidgetComponent, pathMatch: 'full'},
   {path: 'widget', component: PwWidgetComponent},
 ];
 
